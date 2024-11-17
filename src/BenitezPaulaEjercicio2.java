@@ -4,12 +4,7 @@ public class BenitezPaulaEjercicio2 {
     public static void main (String []args){
         Scanner sc= new Scanner(System.in);
 
-        int tablero;
-        int columna;
-        int linea;
         int tamanho;
-
-
 
         System.out.println("Hola! vamos a crear tu tablero personalizado"+ "\n Introduce el caracter que quieres usar como patron.");
         char patron = sc.next().charAt(0); //usamos char y charAt por que queremos usar solo el primer caracter.
@@ -38,17 +33,21 @@ public class BenitezPaulaEjercicio2 {
 
 
         //ahora imprimimos lo que hay en las casillas.
-        for (int linea=0; linea < tamanho; linea++){
-            for (int columna=0; columna< borde; columna++){
-                System.out.println("|");//separador
-                boolean negro= (tablero +columna)%2 ==0;
-                for (int i=0;i<tamanho; i++){
-                    System.out.println(negro ? patron: "  ");
-                }
+        for (int linea = 0; linea < tamanho; linea++) {
+            for (int columna = 0; columna < borde; columna++) {
+                System.out.print("|"); // Separador entre casillas
 
+                // Determinar si es una casilla "negra" o "blanca"
+                boolean negro = (linea / tamanho + columna) % 2 == 0;
+
+                // Imprimir el contenido de la casilla
+                for (int i = 0; i < tamanho; i++) {
+                    System.out.print(negro ? patron : " ");
+                }
             }
-            System.out.println("|");
+            System.out.println("|"); // Cerrar la última casilla de la línea
         }
+
         //aqui imprimimos la linea inferior del tablero
         for (int columna=0; columna < borde; columna++){
             System.out.println("+");
