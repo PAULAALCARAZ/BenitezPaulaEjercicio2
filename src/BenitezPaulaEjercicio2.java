@@ -12,40 +12,41 @@ public class BenitezPaulaEjercicio2 {
         //pedimos al usuario el tamaño de la casilla
 
         do {
-            System.out.println("ahora introduce el tamaño que quieres para la casilla (1 <= size <= 15): ");
+            System.out.println("ahora introduce el tamaño que quieres para la casilla (El valor debe estar entre 1 y 15): ");
             tamanho= sc.nextInt();
-        }while (tamanho < 1 || tamanho > 15);
+        }while (tamanho < 1 || tamanho > 15); //determinamos rango
 
-        int borde= 8; //un tablero de ajedrez debe tener 8x8
+        int borde= 8; //porque un tablero de ajedrez debe tener 8x8
 
         // aqui generamos el tablero con los bordes
 
-        for (int tablero=0; tablero < borde; tablero ++){
-            for (int columna=0; columna< borde; columna++){
+        for (int fila=0; fila < borde; fila ++){
+            //ahora imprimimos el borde de arriba de cada fila.
+            for (int i=0; i< borde; i++){
                 System.out.print("+");
-                for (int i = 0; i < tamanho; i++){
+                for (int j = 0; j < tamanho; j++){
                     System.out.print("-");
                 }
             }
-            System.out.println("+");
+            System.out.println("+"); //cerramos el borde de la ultima casilla de la fila.
 
-        }
+            //ahora imprimimos lo que hay en las casillas.
+            for (int i = 0; i < tamanho; i++) {
+                for (int columna = 0; columna < borde; columna++) {
+                    System.out.print("|"); // Separador entre casillas
 
-        //ahora imprimimos lo que hay en las casillas.
-        for (int linea = 0; linea < tamanho; linea++) {
-            for (int columna = 0; columna < borde; columna++) {
-                System.out.print("|"); // Separador entre casillas
+                    // Determinar si es una casilla "negra" o "blanca"
+                    boolean negro = (fila + columna) % 2 == 0; // Alternancia de colores
+                    for (int j = 0; j < tamanho; j++) {
+                        System.out.print(negro ? patron : " ");
 
-                // Determinar si es una casilla "negra" o "blanca"
-                boolean negro = (linea / tamanho + columna) % 2 == 0;
-
-                // Imprimir el contenido de la casilla
-                for (int i = 0; i < tamanho; i++) {
-                    System.out.print(negro ? patron : " ");
+                    }
                 }
+                System.out.println("|"); // Cerrar la última casilla de la línea
             }
-            System.out.println("|"); // Cerrar la última casilla de la línea
+
         }
+
 
         //aqui imprimimos la linea inferior del tablero
         for (int columna=0; columna < borde; columna++){
@@ -54,7 +55,7 @@ public class BenitezPaulaEjercicio2 {
                 System.out.print("-");
             }
         }
-        System.out.print("+");
+        System.out.println("+");
 
 
 
