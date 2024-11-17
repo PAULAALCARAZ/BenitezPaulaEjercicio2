@@ -22,15 +22,14 @@ public class BenitezPaulaEjercicio2 {
 
         for (int tablero=0; tablero < borde; tablero ++){
             for (int columna=0; columna< borde; columna++){
-                System.out.println("+");
+                System.out.print("+");
                 for (int i = 0; i < tamanho; i++){
-                    System.out.println("-");
+                    System.out.print("-");
                 }
             }
+            System.out.println("+");
 
         }
-        System.out.println("+");
-
 
         //ahora imprimimos lo que hay en las casillas.
         for (int linea = 0; linea < tamanho; linea++) {
@@ -50,12 +49,12 @@ public class BenitezPaulaEjercicio2 {
 
         //aqui imprimimos la linea inferior del tablero
         for (int columna=0; columna < borde; columna++){
-            System.out.println("+");
+            System.out.print("+");
             for (int i=0; i < tamanho; i++){
-                System.out.println("-");
+                System.out.print("-");
             }
         }
-        System.out.println("+");
+        System.out.print("+");
 
 
 
